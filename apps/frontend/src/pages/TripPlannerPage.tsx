@@ -19,7 +19,7 @@ export function TripPlanner() {
       <IonContent fullscreen>
         <div className="relative flex  h-[280px] flex-col bg-[url(/images/Tokyo.png)] bg-cover bg-center">
           <div
-            className="absolute bottom-0 w-full -z-1 opacity-70"
+            className="-z-1 absolute bottom-0 w-full opacity-70"
             style={{
               background:
                 "linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.60) 50%)",
@@ -35,7 +35,7 @@ export function TripPlanner() {
             </IonButtons>
           </IonToolbar>
 
-          <div className="z-10 w-full p-4 mt-auto text-white">
+          <div className="z-10 mt-auto w-full p-4 text-white">
             <div className="flex justify-between">
               <div className="p-0">
                 <div className="font-bold">Tokyo, Japan</div>
@@ -50,7 +50,7 @@ export function TripPlanner() {
               </div>
             </div>
 
-            <div className="flex w-full gap-4 mt-2 overflow-auto">
+            <div className="mt-2 flex w-full gap-4 overflow-auto">
               {[
                 "Cultural Immersion",
                 "Exploration",

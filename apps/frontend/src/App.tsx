@@ -144,46 +144,45 @@ const App = () => {
     >
       <trpc.Provider client={trpcClient} queryClient={queryClient}>
         <QueryClientProvider client={queryClient}>
-          <IonApp>
+          <IonApp  className="mx-auto max-w-[375px]">
             <IonReactRouter>
-              <IonTabs>
-                <IonRouterOutlet ref={routerOutletRef as any}>
-                  <Route exact path="/">
-                    <Redirect to="/home" />
-                  </Route>
-                  <Route exact path="/home">
-                    <HomePage />
-                  </Route>
-                  <Route exact path="/deposit">
-                    <DepositPage />
-                  </Route>
-                  <Route path="/trip">
-                    <TripPage />
-                  </Route>
-                  <Route exact path="/mission">
-                    <MissionPage />
-                  </Route>
-                  <Route exact path="/trip-planner">
-                    <TripPlanner />
-                  </Route>
-                  <Route exact path="/manage-trip">
-                    <ManageTripPage />
-                  </Route>
-                  <Route exact path="/settings">
-                    <SettingsPage />
-                  </Route>
-                  <Route exact path="/signIn">
-                    <SignInPage />
-                  </Route>
-                  <Route exact path="/signUp">
-                    <SignUpPage />
-                  </Route>
-                  <Route exact path="/greeting">
-                    <GreetingPage />
-                  </Route>
-                </IonRouterOutlet>
+              <IonRouterOutlet ref={routerOutletRef as any}>
+                <Route exact path="/">
+                  <Redirect to="/home" />
+                </Route>
+                <Route exact path="/home">
+                  <HomePage />
+                </Route>
+                <Route exact path="/deposit">
+                  <DepositPage />
+                </Route>
+                <Route path="/trip">
+                  <TripPage />
+                </Route>
+                <Route exact path="/mission">
+                  <MissionPage />
+                </Route>
+                <Route exact path="/trip-planner">
+                  <TripPlanner />
+                </Route>
+                <Route exact path="/manage-trip">
+                  <ManageTripPage />
+                </Route>
+                <Route exact path="/settings">
+                  <SettingsPage />
+                </Route>
+                <Route exact path="/signIn">
+                  <SignInPage />
+                </Route>
+                <Route exact path="/signUp">
+                  <SignUpPage />
+                </Route>
+                <Route exact path="/greeting">
+                  <GreetingPage />
+                </Route>
+              </IonRouterOutlet>
 
-                <IonTabBar
+              {/* <IonTabBar
                   className="border-t [--background:#ffffff] [--color:#b2b2b2]"
                   slot="bottom"
                 >
@@ -198,7 +197,7 @@ const App = () => {
                     </IonTabButton>
                   ))}
                 </IonTabBar>
-              </IonTabs>
+              </IonTabs> */}
             </IonReactRouter>
           </IonApp>
         </QueryClientProvider>

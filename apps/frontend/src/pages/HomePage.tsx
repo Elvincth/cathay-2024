@@ -10,16 +10,27 @@ import {
   IonRow,
   IonTitle,
   IonToolbar,
+  useIonRouter,
 } from "@ionic/react";
+import { useState } from "react";
+import { Router } from "react-router";
 import { FreeMode } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { OfferCard, UserAvatarButton } from "~/features/common";
 import { MilesBalanceCard } from "~/features/miles";
+import { TripPlannerModal } from "~/features/trip";
 
 export const HomePage = () => {
+  const router = useIonRouter();
+  const [tripPlannerModalOpened, setTripPlannerModalOpened] = useState(false);
   return (
-    <IonPage>
-      <IonHeader
+    <IonPage
+      style={{
+        "--ion-background-color":
+          "linear-gradient(180deg, #F9F9F9 0%, #F1F3F0 100%)",
+      }}
+    >
+      {/* <IonHeader
         translucent
         collapse="fade"
         className="pointer-events-none absolute opacity-[var(--opacity-scale)]"
@@ -27,10 +38,21 @@ export const HomePage = () => {
         <IonToolbar>
           <IonTitle>Home</IonTitle>
         </IonToolbar>
-      </IonHeader>
+      </IonHeader> */}
 
       <IonContent>
-        <div
+        <TripPlannerModal
+          opened={tripPlannerModalOpened}
+          onClosed={() => setTripPlannerModalOpened(false)}
+        />
+
+        <img
+          src="/images/home_demo.png"
+          className="pt-14"
+          onClick={() => setTripPlannerModalOpened(true)}
+        />
+
+        {/* <div
           className="h-[200px] bg-[url('/images/home-header-bg.svg')] bg-cover bg-no-repeat px-4 
            pb-4 text-white pt-14-safe"
         >
@@ -49,7 +71,7 @@ export const HomePage = () => {
         </div>
 
         {/* Stack */}
-        <div className="flex flex-col gap-4 mt-4">
+        {/* <div className="flex flex-col gap-4 mt-4">
           <div className="container flex flex-col gap-1">
             <div className="font-bold">Balance Miles</div>
             <MilesBalanceCard />
@@ -103,7 +125,7 @@ export const HomePage = () => {
               </IonItem>
             </IonList>
           </div>
-        </div>
+        </div> */}
       </IonContent>
     </IonPage>
   );

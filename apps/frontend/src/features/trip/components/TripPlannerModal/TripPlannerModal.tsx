@@ -4,7 +4,6 @@ import {
   IonContent,
   IonHeader,
   IonIcon,
-  IonImg,
   IonModal,
   IonTitle,
   IonToolbar,
@@ -13,6 +12,11 @@ import { close } from "ionicons/icons";
 import { useRef, useState } from "react";
 import { useApp } from "~/features/common";
 import { Step1 } from "./Step1";
+import { Step2 } from "./Step2";
+import { Step4 } from "./Step4";
+import { Step3 } from "./Step3";
+import { Step5 } from "./Step5";
+import { Step6 } from "./Step6";
 
 export interface TripPlannerModalProps {
   opened: boolean;
@@ -28,7 +32,7 @@ export const TripPlannerModal = ({
   const [step, setStep] = useState(1);
 
   const nextStep = () => {
-    setStep((prev) => Math.min(prev + 1, 3));
+    setStep((prev) => prev + 1);
   };
 
   return (
@@ -36,11 +40,14 @@ export const TripPlannerModal = ({
       ref={modal}
       presentingElement={routerOutletRef?.current}
       isOpen={opened}
-      onIonModalDidDismiss={onClosed}
+      onIonModalDidDismiss={() => {
+        onClosed();
+        setStep(1);
+      }}
     >
       <IonHeader>
         <IonToolbar className="[--background:#fff]">
-          <IonTitle>Plan New Trip</IonTitle>
+          <IonTitle>CaTour</IonTitle>
           {/* <IonButtons slot="start">
             {step === 2 && (
               <IonButton
@@ -61,12 +68,13 @@ export const TripPlannerModal = ({
 
       <IonContent>
         {/* header */}
-        <div className="flex flex-col items-center gap-4 mt-5">
-          <IonImg class="h-[60px] w-[60px]" src={"/images/fly.svg"} />
-          <div className="text-xl font-light">Where you want to go?</div>
-        </div>
 
-        <Step1 onSearch={(v) => console.log(v)} />
+        {step === 1 && <Step1 onSearch={() => nextStep()} />}
+        {step === 2 && <Step2 onNextStep={() => nextStep()} />}
+        {step === 3 && <Step3 onNextStep={() => nextStep()} />}
+        {step === 4 && <Step4 onNextStep={() => nextStep()} />}
+        {step === 5 && <Step5 onNextStep={() => nextStep()} />}
+        {step === 6 && <Step6 onNextStep={() => nextStep()} />}
       </IonContent>
     </IonModal>
   );

@@ -23,7 +23,7 @@ export const ManageTripPage = () => {
         <IonToolbar className="[--background:#fff]">
           <IonTitle>Manage Trip</IonTitle>
           <IonButtons slot="start">
-            <IonButton routerDirection="back" color="dark" routerLink="/trip">
+            <IonButton routerDirection="back" color="dark" routerLink="/home">
               <IonIcon icon={chevronBack} />
             </IonButton>
           </IonButtons>
