@@ -32,7 +32,7 @@ export const TripPlannerModal = ({
 }: TripPlannerModalProps) => {
   const modal = useRef<HTMLIonModalElement>(null);
   const { routerOutletRef } = useApp();
-  const [step, setStep] = useState(7);
+  const [step, setStep] = useState(1);
 
   const nextStep = () => {
     setStep((prev) => prev + 1);
@@ -45,7 +45,7 @@ export const TripPlannerModal = ({
       isOpen={opened}
       onIonModalDidDismiss={() => {
         onClosed();
-        setStep(7);
+        setStep(1);
       }}
     >
       <IonHeader>
