@@ -70,16 +70,14 @@ export const TripPlannerModal = ({
       </IonHeader>
 
       <IonContent>
-        {/* header */}
-
-        {step === 1 && <Step1 onSearch={() => nextStep()} />}
-        {step === 2 && <Step2 onNextStep={() => nextStep()} />}
-        {step === 3 && <Step3 onNextStep={() => nextStep()} />}
-        {step === 4 && <Step4 onNextStep={() => nextStep()} />}
-        {step === 5 && <Step5 onNextStep={() => nextStep()} />}
-        {step === 6 && <Step6 onNextStep={() => nextStep()} />}
-        {step === 7 && <Step7 onNextStep={() => nextStep()} />}
-        {step === 8 && <Step8 onNextStep={() => nextStep()} />}
+        {step === 1 && <Step1 onSearch={() => setStep(2)} />}
+        {step === 2 && <Step2 onNextStep={() => setStep(3)} />}
+        {step === 3 && <Step3 onNextStep={() => setStep(4)} />}
+        {step === 4 && <Step4 onNextStep={() => setStep(5)} />}
+        {step === 5 && <Step5 onNextStep={() => setStep(6)} />}
+        {step === 6 && <Step6 onNextStep={() => setStep(7)} />}
+        {step === 7 && <Step7 onNextStep={() => setStep(8)} />}
+        {step === 8 && <Step8 onNextStep={() => setStep(9)} />}
         {step === 9 && <Step9 onNextStep={() => onClosed()} />}
       </IonContent>
     </IonModal>

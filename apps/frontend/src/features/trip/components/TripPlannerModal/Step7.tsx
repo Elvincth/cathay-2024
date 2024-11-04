@@ -12,7 +12,7 @@ export function Step7({ onNextStep }: Step7Props) {
         <TripHeader />
 
         <div className="p-4">
-          <img src="/images/tour.png" className="mx-auto w-[350px]" />
+          <img src="/images/tour.png" className="mx-auto w-[320px]" />
 
           <IonButton className="mt-2 w-full" onClick={() => onNextStep()}>
             Next
