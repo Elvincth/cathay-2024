@@ -194,9 +194,10 @@ const travelThemes = [
 
 export interface Step4Props {
   onNextStep: () => void;
+  onPrevStep: () => void;
 }
 
-export function Step4({ onNextStep }: Step4Props) {
+export function Step4({ onNextStep, onPrevStep }: Step4Props) {
   const [pickedThemes, setPickedThemes] = useState<string[]>([]);
   return (
     <div className="p-4">
@@ -236,6 +237,9 @@ export function Step4({ onNextStep }: Step4Props) {
         </div>
 
         <div className="flex items-center justify-center gap-2">
+          <IonButton className="w-full" onClick={() => onPrevStep()}>
+            Back
+          </IonButton>
           <IonButton className="w-full" onClick={() => onNextStep()}>
             Next
           </IonButton>

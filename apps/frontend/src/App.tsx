@@ -181,23 +181,6 @@ const App = () => {
                   <GreetingPage />
                 </Route>
               </IonRouterOutlet>
-
-              {/* <IonTabBar
-                  className="border-t [--background:#ffffff] [--color:#b2b2b2]"
-                  slot="bottom"
-                >
-                  {tabs.map((tab) => (
-                    <IonTabButton key={tab.id} tab={tab.id} href={tab.href}>
-                      <IonIcon
-                        size="small"
-                        aria-hidden="true"
-                        icon={tab.icon}
-                      />
-                      <IonLabel>{tab.label}</IonLabel>
-                    </IonTabButton>
-                  ))}
-                </IonTabBar>
-              </IonTabs> */}
             </IonReactRouter>
           </IonApp>
         </QueryClientProvider>
