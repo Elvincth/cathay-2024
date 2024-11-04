@@ -19,7 +19,10 @@ export function Step6({ onNextStep }: Step6Props) {
     <>
       <div>
         <TripHeader />
-        <img src="/images/loading.svg" className="mx-auto animate-pulse py-5" />
+        <img
+          src="/images/loading.svg"
+          className="mx-auto w-[350px] animate-pulse py-5"
+        />
       </div>
     </>
   );

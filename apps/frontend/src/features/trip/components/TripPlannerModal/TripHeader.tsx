@@ -31,7 +31,10 @@ export default function TripHeader() {
         <div className="mt-2 flex w-full gap-4 overflow-auto">
           {["Cultural Immersion", "Exploration", "Photography", "Nature"].map(
             (tag) => (
-              <div className="flex w-fit items-center whitespace-nowrap rounded-xl bg-[#016564] p-1 px-1.5 py-1 text-xs font-medium text-white">
+              <div
+                key={tag}
+                className="flex w-fit items-center whitespace-nowrap rounded-xl bg-[#016564] p-1 px-1.5 py-1 text-xs font-medium text-white"
+              >
                 {tag}
               </div>
             ),

@@ -17,6 +17,9 @@ import { Step4 } from "./Step4";
 import { Step3 } from "./Step3";
 import { Step5 } from "./Step5";
 import { Step6 } from "./Step6";
+import { Step7 } from "./Step7";
+import { Step8 } from "./Step8";
+import { Step9 } from "./Step9";
 
 export interface TripPlannerModalProps {
   opened: boolean;
@@ -29,7 +32,7 @@ export const TripPlannerModal = ({
 }: TripPlannerModalProps) => {
   const modal = useRef<HTMLIonModalElement>(null);
   const { routerOutletRef } = useApp();
-  const [step, setStep] = useState(1);
+  const [step, setStep] = useState(7);
 
   const nextStep = () => {
     setStep((prev) => prev + 1);
@@ -42,7 +45,7 @@ export const TripPlannerModal = ({
       isOpen={opened}
       onIonModalDidDismiss={() => {
         onClosed();
-        setStep(1);
+        setStep(7);
       }}
     >
       <IonHeader>
@@ -75,6 +78,9 @@ export const TripPlannerModal = ({
         {step === 4 && <Step4 onNextStep={() => nextStep()} />}
         {step === 5 && <Step5 onNextStep={() => nextStep()} />}
         {step === 6 && <Step6 onNextStep={() => nextStep()} />}
+        {step === 7 && <Step7 onNextStep={() => nextStep()} />}
+        {step === 8 && <Step8 onNextStep={() => nextStep()} />}
+        {step === 9 && <Step9 onNextStep={() => onClosed()} />}
       </IonContent>
     </IonModal>
   );
