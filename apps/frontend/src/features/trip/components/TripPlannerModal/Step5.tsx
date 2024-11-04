@@ -42,7 +42,7 @@ export function Step5({ onNextStep }: Step5Props) {
         <div className="p-4">
           <div className="font-semibold">Trip Itinerary</div>
 
-          <div className="mt-4 flex gap-4 overflow-auto">
+          <div className="flex gap-4 mt-4 overflow-auto">
             {/* 19 Nov 2024 to 26 Nov 2024 */}
             {[
               new Date("2024-11-19"),
@@ -68,7 +68,7 @@ export function Step5({ onNextStep }: Step5Props) {
               "/images/day1.jpg": focusedIndex === 0,
               "/images/day2.jpg": focusedIndex === 1,
             })}
-            className="mt-4 w-full"
+            className="w-full mt-4"
           />
 
           <div className="mt-2">

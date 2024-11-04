@@ -53,7 +53,7 @@ export function Step2({ onNextStep }: Step2Props) {
                 },
               )}
             >
-              <div className="text-[#aaa]">Depart</div>
+              <div className="text-[#aaa]">Return</div>
               {/* 19 Nov 2024 */}
               <div className="text-primary">
                 {returnDate.toLocaleDateString("en-US", {
@@ -67,9 +67,15 @@ export function Step2({ onNextStep }: Step2Props) {
 
           <IonDatetime
             presentation="date"
-            value={departDate.toISOString()}
+            value={
+              isDepartDateFocused
+                ? departDate.toISOString()
+                : returnDate.toISOString()
+            }
             onIonChange={(e) =>
-              setDepartDate(new Date(e.detail.value! as string))
+              isDepartDateFocused
+                ? setDepartDate(new Date(e.detail.value! as string))
+                : setReturnDate(new Date(e.detail.value! as string))
             }
             multiple={false}
           />
