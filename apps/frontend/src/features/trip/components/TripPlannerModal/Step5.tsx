@@ -63,7 +63,13 @@ export function Step5({ onNextStep }: Step5Props) {
             ))}
           </div>
 
-          <img src="/images/day1.jpg" className="mt-4 w-full" />
+          <img
+            src={cn({
+              "/images/day1.jpg": focusedIndex === 0,
+              "/images/day2.jpg": focusedIndex === 1,
+            })}
+            className="mt-4 w-full"
+          />
 
           <div className="mt-2">
             <IonButton className="w-full" onClick={() => onNextStep()}>
