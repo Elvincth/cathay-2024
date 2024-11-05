@@ -2,6 +2,7 @@ import { IonButton } from "@ionic/react";
 import TripHeader from "./TripHeader";
 import { cn } from "~/lib/misc";
 import { useState } from "react";
+import { MdVerified } from "react-icons/md";
 
 export interface Step5Props {
   onNextStep: () => void;
@@ -63,17 +64,25 @@ function ActivityList() {
   return (
     <div className="h-64 overflow-y-auto">
       {activities.map((activity, index) => (
-        <div className="my-2 flex" key={index}>
-          <img
-            className="mr-3 h-16 w-16 rounded"
-            src={activity.imgSrc}
-            alt={activity.name}
-          />
-          <div className="space-y-1">
-            <p>{activity.name}</p>
-            <p className="text-xs">{activity.time}</p>
-            <p className="text-xs font-semibold text-teal-700">View Details</p>
+        <div
+          className="my-2 flex items-center justify-between pr-2"
+          key={index}
+        >
+          <div className="flex">
+            <img
+              className="mr-3 h-16 w-16 rounded"
+              src={activity.imgSrc}
+              alt={activity.name}
+            />
+            <div className="space-y-1">
+              <p>{activity.name}</p>
+              <p className="text-xs">{activity.time}</p>
+              <p className="text-xs font-semibold text-teal-700">
+                View Details
+              </p>
+            </div>
           </div>
+          {index === 0 || index === 3 ? <MdVerified style={{color: "#00645A"}}/> : null}
         </div>
       ))}
     </div>
