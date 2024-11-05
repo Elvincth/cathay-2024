@@ -1,11 +1,11 @@
-import { IonButton, IonButtons, IonIcon, IonToolbar } from "@ionic/react";
-import { chevronBack, reload } from "ionicons/icons";
+import { IonButton } from "@ionic/react";
 import TripHeader from "./TripHeader";
 import { cn } from "~/lib/misc";
 import { useState } from "react";
 
 export interface Step5Props {
   onNextStep: () => void;
+  onPrevStep: () => void;
 }
 
 export function DateButton({
@@ -32,7 +32,55 @@ export function DateButton({
   );
 }
 
-export function Step5({ onNextStep }: Step5Props) {
+const activities = [
+  {
+    name: "Y Y Dumplings",
+    time: "8:30AM - 9:30AM | Breakfast",
+    imgSrc:
+      "https://twoplaidaprons.com/wp-content/uploads/2020/05/Chinese-pork-dumplings-picking-up-a-dumpling-with-chopsticks.jpg",
+  },
+  {
+    name: "Electronics",
+    time: "10:00AM - 12:00PM | Shopping",
+    imgSrc:
+      "https://s3-media0.fl.yelpcdn.com/bphoto/nzXtEaRrNM7jjbJfXnTpTw/1000s.jpg",
+  },
+  {
+    name: "Skewers",
+    time: "12:30PM - 1:30PM | Lunch",
+    imgSrc:
+      "https://thecarrotunderground.com/wp-content/uploads/2024/05/grilled-veggie-skewers-with-potatoes-hero.jpg",
+  },
+  {
+    name: "Dongmen Street",
+    time: "2:00PM - 6:00PM | Shopping",
+    imgSrc:
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/ShenZhen_Dongmen.jpg/1200px-ShenZhen_Dongmen.jpg",
+  },
+];
+
+function ActivityList() {
+  return (
+    <div className="h-64 overflow-y-auto">
+      {activities.map((activity, index) => (
+        <div className="my-2 flex" key={index}>
+          <img
+            className="mr-3 h-16 w-16 rounded"
+            src={activity.imgSrc}
+            alt={activity.name}
+          />
+          <div className="space-y-1">
+            <p>{activity.name}</p>
+            <p className="text-xs">{activity.time}</p>
+            <p className="text-xs font-semibold text-teal-700">View Details</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+export function Step5({ onNextStep, onPrevStep }: Step5Props) {
   const [focusedIndex, setFocusedIndex] = useState(0);
   return (
     <>
@@ -42,7 +90,7 @@ export function Step5({ onNextStep }: Step5Props) {
         <div className="p-4">
           <div className="font-semibold">Trip Itinerary</div>
 
-          <div className="flex gap-4 mt-4 overflow-auto">
+          <div className="mt-4 flex gap-4 overflow-auto">
             {/* 19 Nov 2024 to 26 Nov 2024 */}
             {[
               new Date("2024-11-19"),
@@ -63,15 +111,12 @@ export function Step5({ onNextStep }: Step5Props) {
             ))}
           </div>
 
-          <img
-            src={cn({
-              "/images/day1.jpg": focusedIndex === 0,
-              "/images/day2.jpg": focusedIndex === 1,
-            })}
-            className="w-full mt-4"
-          />
+          <ActivityList />
 
-          <div className="mt-2">
+          <div className="mt-2 flex">
+            <IonButton className="w-full" onClick={() => onPrevStep()}>
+              Back
+            </IonButton>
             <IonButton className="w-full" onClick={() => onNextStep()}>
               Next
             </IonButton>

@@ -5,6 +5,7 @@ import { cn } from "~/lib/misc";
 
 export interface Step3Props {
   onNextStep: () => void;
+  onPrevStep: () => void;
 }
 
 const MinusButton = ({ onClick }: { onClick: () => void }) => (
@@ -27,7 +28,7 @@ const PlusButton = ({ onClick }: { onClick: () => void }) => (
   </div>
 );
 
-export function Step3({ onNextStep }: Step3Props) {
+export function Step3({ onNextStep, onPrevStep }: Step3Props) {
   const [adults, setAdults] = useState(1);
   const [childrenNo, setChildrenNo] = useState(0);
 
@@ -70,10 +71,14 @@ export function Step3({ onNextStep }: Step3Props) {
             </div>
           </div>
         </div>
-
-        <IonButton className="w-full" onClick={() => onNextStep()}>
-          Next
-        </IonButton>
+        <div className="flex">
+          <IonButton className="w-full" onClick={() => onPrevStep()}>
+            Back
+          </IonButton>
+          <IonButton className="w-full" onClick={() => onNextStep()}>
+            Next
+          </IonButton>
+        </div>
       </div>
     </>
   );
